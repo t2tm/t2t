@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: yangpengfei
+Class-Path: scala-library-2.10.4.jar scala-actors-2.10.4.jar scala-ref
+ lect-2.10.4.jar scala-swing-2.10.4.jar mysql-connector-java-5.1.30.ja
+ r
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.7.0_71
+

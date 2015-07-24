@@ -9,7 +9,7 @@ import java.util.PropertyResourceBundle
 object ReadFile {
 
   def getDB(): (String, String, String, String) = {
-    val file = new File(ReadFile.getClass.getResource("/").getPath + "/jdbc.properties")
+    val file = new File(ReadFile.getClass.getResource("/").getPath + "/t2t-jdbc.properties")
     val is = new FileInputStream(file);
     val read = new PropertyResourceBundle(is);
     val db = (read.getString("mysql.driverClassName")
@@ -20,5 +20,13 @@ object ReadFile {
     db
   }
 
+  def getCron(): String = {
+    val file = new File(ReadFile.getClass.getResource("/").getPath + "/t2t-quartz.properties")
+    val is = new FileInputStream(file);
+    val read = new PropertyResourceBundle(is);
+    val cron = read.getString("cron")
+    is.close()
+    cron
+  }
 
 }
