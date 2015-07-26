@@ -12,6 +12,7 @@ object PageUtil {
 
   def WriteReponseJson(response: HttpServletResponse, data: AnyRef) {
     val info = new Gson().toJson(data)
+    println(info)
     response.reset();
     response.setContentType("text/json; charset=UTF-8");
     response.setHeader("Cache-Control", "no-cache");

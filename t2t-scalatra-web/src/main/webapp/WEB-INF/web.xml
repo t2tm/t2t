@@ -11,6 +11,9 @@
     <listener>
         <listener-class>org.scalatra.servlet.ScalatraListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.t2t.tss.listener.ServletContextScheduleListener</listener-class>
+    </listener>
 
     <welcome-file-list>
         <welcome-file>welcome.jsp</welcome-file>

@@ -37,7 +37,7 @@
         <h1>Hello, Scala and Spark!</h1>
 
         <p>
-            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/spark/list.jsp?keyword=Spark')">Spark List</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/spark/day.jsp?keyword=Spark')">Spark List</a>
         </p>
 
         <p>
@@ -46,6 +46,11 @@
 
         <p>
             <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/index.jsp')">品红网站</a>
+        </p>
+
+        <p>
+            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/recruit/day.jsp')">按天招聘统计</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/recruit/update.jsp?keys=PHP')">实时招聘统计</a>
         </p>
 
         <p>&nbsp;</p>

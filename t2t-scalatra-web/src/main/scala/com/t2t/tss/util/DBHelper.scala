@@ -16,7 +16,7 @@ object DBHelper {
    * @param sql
    * @return 受影响的行数
    */
-  def executeUpdate(sql: String, arr: AnyRef*): Int = {
+  def executeUpdate(sql: String, arr: Any*): Int = {
     val conn = getConnection()
     try {
       val statement = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)

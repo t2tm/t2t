@@ -3,7 +3,7 @@ package com.t2t.tss.job
 import java.text.SimpleDateFormat
 import java.util.Date
 
-import com.t2t.tss.util.ReadFile
+import com.t2t.tss.util.{DBHelper, ReadFile}
 import org.joda.time._
 import org.quartz.CronScheduleBuilder._
 import org.quartz.JobBuilder._
@@ -23,10 +23,10 @@ object FetchRecruitJob {
   @throws(classOf[Exception])
   def run() = {
     var cron: String = ReadFile.getCron
-    cron = "0/20 * * * * ?"
+    //    cron = "0/20 * * * * ?"
     val sf: SchedulerFactory = new StdSchedulerFactory
     val sched: Scheduler = sf.getScheduler
-    val job: JobDetail = newJob(classOf[SimpleJob]).withIdentity("job1", "group1").build
+    val job: JobDetail = newJob(classOf[FetchRecruitJob]).withIdentity("job1", "group1").build
     val trigger: CronTrigger = newTrigger.withIdentity("trigger1", "group1").withSchedule(cronSchedule(cron)).build
     sched.scheduleJob(job, trigger)
     System.out.println("start job " + new Date)
@@ -50,9 +50,13 @@ class FetchRecruitJob extends Job {
     System.out.println("Hello World! - " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date))
     val jobKey: JobKey = context.getJobDetail.getKey
     System.out.println("SimpleJob says: " + jobKey + " executing at " + new Date)
-    FetchRecruit.print("java")
-    FetchRecruit.print("scala")
-    FetchRecruit.print("spark")
+
+    "java,spark,hadoop".split(",").foreach(key => {
+      val bean = FetchRecruit.get(key)
+      val sql = "INSERT INTO `T2T_STAT_RECRUIT`(KEYWORD,NUM,LABEL,CREATETIME) VALUES (?, ?, ?, ?)"
+      DBHelper.executeUpdate(sql, bean.keyword, bean.num, bean.label, bean.createtime)
+    })
+
     System.out.println("------------------")
   }
 }
