@@ -37,7 +37,7 @@
         <h1>Hello, Scala and Spark!</h1>
 
         <p>
-            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/spark/day.jsp?keyword=Spark')">Spark List</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/spark/list.jsp?keyword=Spark')">Spark List</a>
         </p>
 
         <p>
@@ -54,7 +54,7 @@
         </p>
 
         <p>&nbsp;</p>
-        <p>参考源码1：<a class="https://github.com/t2tm/t2t-scala">https://github.com/t2tm/t2t-scala</a></p>
+        <p>参考源码1：<a class="https://github.com/t2tm/t2t">https://github.com/t2tm/t2t</a></p>
         <p>参考源码2：<a class="https://github.com/jrunner">https://github.com/jrunner</a></p>
     </div>
 

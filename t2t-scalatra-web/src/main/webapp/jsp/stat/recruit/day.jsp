@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Highcharts Example</title>
+    <title>按天统计</title>
     <script src="<%=request.getContextPath()%>/js/plugins/bootstrap/jquery/jquery.min.js"></script>
     <script type="text/javascript">
         function getData(response) {
@@ -54,6 +54,7 @@
                 getData(response)
                 return;
             }
+            alert(response.msg)
         }
 
         var chart

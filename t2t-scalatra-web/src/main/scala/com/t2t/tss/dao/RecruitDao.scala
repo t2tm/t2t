@@ -26,7 +26,7 @@ class RecruitDao extends BaseDao {
   import com.t2t.tss.dao.BaseDaoContext._
 
   def show(): java.util.HashMap[String, AnyRef] = {
-    var sql = "SELECT DATE_FORMAT(CREATETIME,'%m.%d') label ,AVG(num) num,KEYWORD from t2t_stat_recruit  group by KEYWORD,DATE_FORMAT(CREATETIME,'%Y%m%d')"
+    var sql = "SELECT DATE_FORMAT(CREATETIME,'%m.%d') label ,AVG(num) num,KEYWORD from T2T_STAT_RECRUIT  group by KEYWORD,DATE_FORMAT(CREATETIME,'%Y%m%d')"
     val rs = DBHelper.executeQuery(sql)
 
     var list = new ArrayBuffer[(String, Int, String)]
@@ -64,21 +64,6 @@ class RecruitDao extends BaseDao {
     map.put("series", series.toArray)
     map.put("categories", categories.toArray)
     map
-  }
-
-  //时间轴
-  def timeline(key: String): ArrayBuffer[(String, Array[History])] = {
-    var sql = "SELECT YY from TOP_HISTORY where KEYWORD = '{0}' group by YY desc".replace("{0}", key)
-    val result = new ArrayBuffer[(String, Array[History])]
-
-    val rs = DBHelper.executeQuery(sql)
-    while (rs.next()) {
-      val yy = rs.getString("yy")
-      var sql2 = " SELECT * from TOP_HISTORY where KEYWORD = '{0}' and YY = '{1}' ORDER BY YY,MM,DD desc ".replace("{0}", key).replace("{1}", yy)
-      val list: ArrayBuffer[History] = DBHelper.executeQuery(sql2)
-      result += ((yy, list.toArray))
-    }
-    result
   }
 
 
