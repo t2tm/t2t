@@ -50,7 +50,7 @@
 
         <p>
             <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/recruit/day.jsp')">按天招聘统计</a>
-            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/recruit/update.jsp?keys=PHP')">实时招聘统计</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="goto('<%=request.getContextPath()%>/jsp/stat/recruit/update.jsp?keys=PHP,JAVA,SPARK,HADOOP,C,PYTHON')">实时招聘统计</a>
         </p>
 
         <p>&nbsp;</p>

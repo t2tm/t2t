@@ -38,7 +38,7 @@ class RecruitServlet extends ScalatraServlet {
   get("/fetch") {
 
     val map = new java.util.HashMap[String, AnyRef]
-    map.put("info", "0")
+    map.put("info", "1")
 
     var list = new ArrayBuffer[Item]
 
